@@ -7,20 +7,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	// write your code here
-        SerializacjaDanych sd = new SerializacjaDanych();
-//        sd.ZapisDanychDoPliku();
-//        sd.OdczytDanychZPliku();
 
-        Pliki p = new Pliki();
-//        p.StartLokalizaji();
-
-        Path lokalizacja = p.StartLokalizaji();
-        File[] temp = p.PobierzListePlikow();
-//        p.PrzeniesPliki(lokalizacja, "katalog", temp);
-
-        p.WyswietlInformacjeOPliku(temp[0]);
-
-        PlikZip pZip = new PlikZip();
-        pZip.ZapisDoArchiwum(temp, "katalog", "archiwumZip.zip");
+        PlikXML xml = new PlikXML();
+//        xml.SaveToXMLFile("Osoba.xml");
+//        xml.ReadXMLFile("Osoba.xml");
+//        xml.ReadXMLFileXPath("Osoba.xml");
+        xml.ReadXMLFileXPathExchange("ExchangeRatesTable.xml");
     }
 }
