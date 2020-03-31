@@ -22,6 +22,32 @@ public class PlikXML {
             doc.appendChild(root);
 
             Element personE = doc.createElement("Osoba");
+            personE.setAttribute("nr", "1");
+            root.appendChild(personE);
+
+            Element nameE = doc.createElement("Imie");
+            nameE.setTextContent("Jan");
+            Element lastnameE = doc.createElement("Nazwisko");
+            lastnameE.setTextContent("Kowalski");
+
+            personE.appendChild(nameE);
+            personE.appendChild(lastnameE);
+
+            Element adressE = doc.createElement("Adres");
+            personE.appendChild(adressE);
+
+            Element streetE = doc.createElement("Ulica");
+            streetE.setTextContent("Kwiatowa");
+            Element buildingE = doc.createElement("Budynek");
+            buildingE.setAttribute("nr", "12");
+            buildingE.setAttribute("lok_nr", "1");
+            Element cityE = doc.createElement("Miasto");
+            cityE.setTextContent("Krakow");
+            cityE.setAttribute("code", "32-100");
+            adressE.appendChild(streetE);
+            adressE.appendChild(buildingE);
+            adressE.appendChild(cityE);
+
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
