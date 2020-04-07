@@ -22,7 +22,7 @@ public class JSON {
     }
 
     public JSONArray SetDateToJSON() {
-        int index = 138000; // twoj numer indeksu
+        int index = 138098; // twoj numer indeksu
         Scanner input = new Scanner(System.in);
         JSONObject obj = new JSONObject();
         obj.put("Indeks", index);
@@ -36,5 +36,11 @@ public class JSON {
         JSONArray objArr = new JSONArray();
         objArr.put(obj);
         return objArr;
+    }
+
+    public JSONObject MyPost (int index) {
+        JSONObject obj = new JSONObject();
+        obj.put("Indeks", index);
+        return obj;
     }
 }

@@ -38,7 +38,7 @@ public class WebPage {
         }
     }
 
-    public void SendDateToWebPage(String date, String address) {
+    public void SendDataToWebPage(String date, String address) {
         try {
             URL url = new URL(address);
             URLConnection conn = url.openConnection();

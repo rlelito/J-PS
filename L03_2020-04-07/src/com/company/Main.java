@@ -2,8 +2,6 @@ package com.company;
 
 import org.json.JSONArray;
 
-import  java.io.*;
-
 public class Main {
 
     public static void main(String[] args){
@@ -12,8 +10,11 @@ public class Main {
 
         JSON jObj = new JSON();
         jObj.GetDataFromJSON(temp);
-        JSONArray tempArr = jObj.SetDateToJSON();
+        //JSONArray tempArr = jObj.SetDateToJSON();
 
-        wp.SendDateToWebPage(tempArr.toString(), "http://ux.up.krakow.pl/~pmazurek/java/add.php");
+        //wp.SendDataToWebPage(tempArr.toString(), "http://ux.up.krakow.pl/~pmazurek/java/add.php");
+
+        System.out.println("Moje wpisy:");
+        wp.SendDataToWebPage(jObj.MyPost(138098).toString(), "http://ux.up.krakow.pl/~pmazurek/java/read.php");
     }
 }
