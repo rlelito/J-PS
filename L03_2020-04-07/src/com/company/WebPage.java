@@ -1,5 +1,10 @@
 package com.company;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -70,7 +75,42 @@ public class WebPage {
         }
     }
 
+    public void GetLinksFromWebPage(String date) {
+        Document doc = Jsoup.parse(date);
+//        System.out.println(doc.head());
+
+        Element body = doc.body();
+        Elements linki = body.select("a[href]");
+
+        //        Elements linki = body.select("img");
+//        System.out.println(linki.size());
+
+//        for (Element e : linki) {
+//            System.out.println(e.attr("href"));
+//        }
+
+        System.out.println(linki.get(10).attr("abs:href"));
+        String temp = GetDataFromWebPage(linki.get(10).attr("abs:href"));
+        System.out.println(temp);
+        doc = Jsoup.parse(temp);
+        body = doc.body();
+
+        linki = body.select("a[href]");
+        System.out.println(linki.size());
+        for (Element e: linki) {
+            URL tempLink = new URL(e.attr("abs:href"));
+            if (!tempLink.equals("www.up.krakow.pl")) {
+                System.out.println(tempLink.getHost());
+            }
+        }
+    }
+
     public static void GetConnectionInfo(URLConnection connection, URL url) {
         System.out.println("Protokol:" + url.getProtocol());
+        System.out.println("Info: " + url.getUserInfo());
+        String host = url.getHost();
+        if (host != null) {
+            int atSign = host.indexOf('@');
+        }
     }
 }
